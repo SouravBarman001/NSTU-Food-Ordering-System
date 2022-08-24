@@ -17,7 +17,9 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
 
 <body>
     <div id="wrapper">
@@ -29,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons">track_changes</i> <strong>target</strong></a>
+                <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons">track_changes</i> <strong>NSTU FOS</strong></a>
 				
 		<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
             </div>
@@ -130,23 +132,6 @@
                     <div class="col-xs-12 col-sm-6 col-md-3">
 					
 						<div class="card horizontal cardIcon waves-effect waves-dark">
-						<div class="card-image red">
-						<i class="material-icons dp48">import_export</i>
-						</div>
-						<div class="card-stacked red">
-						<div class="card-content">
-						<h3>84,198</h3> 
-						</div>
-						<div class="card-action">
-						<strong>REVENUE</strong>
-						</div>
-						</div>
-						</div>
-	 
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-					
-						<div class="card horizontal cardIcon waves-effect waves-dark">
 						<div class="card-image orange">
 						<i class="material-icons dp48">shopping_cart</i>
 						</div>
@@ -179,150 +164,15 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3">
 					
-					<div class="card horizontal cardIcon waves-effect waves-dark">
-						<div class="card-image green">
-						<i class="material-icons dp48">supervisor_account</i>
-						</div>
-						<div class="card-stacked green">
-						<div class="card-content">
-						<h3>88,658</h3> 
-						</div>
-						<div class="card-action">
-						<strong>VISITS</strong>
-						</div>
-						</div>
-						</div> 
-						 
-                    </div>
                 </div>
 			   </div>
-				<!-- /. ROW  --> 
-				<div class="row">
-					<div class="col-xs-12 col-sm-12 col-md-7"> 
-					<div class="cirStats">
-						  	<div class="row">
-								<div class="col-xs-12 col-sm-6 col-md-6"> 
-										<div class="card-panel text-center">
-											<h4>Profit</h4>
-											<div class="easypiechart" id="easypiechart-blue" data-percent="82" ><span class="percent">82%</span>
-											</div> 
-										</div>
-								</div>
-								<div class="col-xs-12 col-sm-6 col-md-6"> 
-										<div class="card-panel text-center">
-											<h4>No. of Visits</h4>
-											<div class="easypiechart" id="easypiechart-red" data-percent="46" ><span class="percent">46%</span>
-											</div>
-										</div>
-								</div>
-								<div class="col-xs-12 col-sm-6 col-md-6"> 
-										<div class="card-panel text-center">
-											<h4>Customers</h4>
-											<div class="easypiechart" id="easypiechart-teal" data-percent="84" ><span class="percent">84%</span>
-											</div> 
-										</div>
-								</div>
-								<div class="col-xs-12 col-sm-6 col-md-6"> 
-										<div class="card-panel text-center">
-											<h4>Sales</h4>
-											<div class="easypiechart" id="easypiechart-orange" data-percent="55" ><span class="percent">55%</span>
-											</div>
-										</div>
-								</div>  
-							</div>
-						</div>							
-						</div><!--/.row-->
-						<div class="col-xs-12 col-sm-12 col-md-5"> 
-						     <div class="row">
-									<div class="col-xs-12"> 
-									<div class="card">
-										<div class="card-image donutpad">
-										  <div id="morris-donut-chart"></div>
-										</div> 
-										<div class="card-action">
-										  <b>Donut Chart Example</b>
-										</div>
-									</div>	
-								</div>
-							 </div>
-						</div><!--/.row-->
-					</div>
-					
-		 
-				<div class="row">
-				<div class="col-md-5"> 
-						<div class="card">
-						<div class="card-image">
-						 <div id="morris-line-chart"></div>
-						</div> 
-						<div class="card-action">
-						  <b>Line Chart</b>
-						</div>
-						</div>
-		  
-					</div>		
-					
-						<div class="col-md-7"> 
-					<div class="card">
-					<div class="card-image">
-					  <div id="morris-bar-chart"></div>
-					</div> 
-					<div class="card-action">
-					  <b> Bar Chart Example</b>
-					</div>
-					</div>					
-					</div>
-					
-				</div> 
-			 
-				
+
+	
 				
                 <div class="row">
-                    <div class="col-xs-12">
-						<div class="card">
-					<div class="card-image">
-					  <div id="morris-area-chart"></div>
-					</div> 
-					<div class="card-action">
-					  <b>Area Chart</b>
-					</div>
-					</div>	 
-                    </div> 
 
-                </div>
-				<div class="row">
-				<div class="col-md-12">
-				
-					</div>		
-				</div> 	
-                <!-- /. ROW  -->
-
-	   
-				
-				
-				
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-						<div class="card"><div class="card-action">
-					  <b>Tasks Panel</b>
-					</div>
-					<div class="card-image">
-					  <div class="collection">
-						  <a href="#!" class="collection-item">Red<span class="new badge red" data-badge-caption="red">4</span></a>
-						  <a href="#!" class="collection-item">Blue<span class="new badge blue" data-badge-caption="blue">4</span></a>
-						  <a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
-							<a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
-							<a href="#!" class="collection-item">Alan<span class="new badge blue" data-badge-caption="blue">4</span></a>
-							<a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
-							   <a href="#!" class="collection-item">Custom Badge Captions<span class="new badge" data-badge-caption="custom caption">4</span></a>
-							<a href="#!" class="collection-item">Custom Badge Captions<span class="badge" data-badge-caption="custom caption">4</span></a>
-						</div>
-					</div> 
-					
-					</div>	  
-
-                    </div>
                     <div class="col-md-8 col-sm-12 col-xs-12">
+
 	<div class="card">
 	<div class="card-action">
 					  <b>User List</b>
