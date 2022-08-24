@@ -45,7 +45,8 @@ ordering system.
 
 
 ## References:
-Sommerville, I. (2016) Software Engineering. 10th Edition, Pearson Education Limited, 
+-Sommerville, I. (2016) Software Engineering. 10th Edition, Pearson Education Limited, 
 Boston.
-Web Technologies: A Computer Science Perspective
+
+-Web Technologies: A Computer Science Perspective
 Book by Jeffrey C. Jackson
