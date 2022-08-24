@@ -1,4 +1,4 @@
-#Introduction:
+# Introduction:
 NSTU Food Ordering System is a web-based application intended to provide a platform for 
 food entrepreneurs to start their own business. Students would be able to establish themselves 
 as entrepreneurs from the beginning of their student life. Also, general students get to have 
