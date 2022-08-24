@@ -31,7 +31,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons">track_changes</i> <strong>NSTU FOS</strong></a>
+                <a class="navbar-brand waves-effect waves-dark" href="VendorProfile.php"><i class="large material-icons">track_changes</i> <strong>NSTU FOS</strong></a>
 				
 		<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
             </div>
@@ -43,10 +43,6 @@
         </nav>
 		<!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
-</li>
-<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-</li> 
 <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 </li>
 </ul> 
@@ -78,11 +74,6 @@
                         <h1 class="page-header">
                             Dashboard
                         </h1>
-						<ol class="breadcrumb">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">Dashboard</a></li>
-					  <li class="active">Data</li>
-					</ol> 
 									
 		</div>
             <div id="page-inner">
@@ -135,7 +126,7 @@
 
 	<div class="card">
 	<div class="card-action">
-					  <b>User List</b>
+					  <b>Food List</b>
 					</div>
 					<div class="card-image">
 					  <ul class="collection">
@@ -191,12 +182,6 @@
       <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
     </ul>
   </div>
-		
-				<footer><p>Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-</p>
-				
-        
-				</footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>
