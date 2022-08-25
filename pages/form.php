@@ -85,23 +85,31 @@
                             Enter Food Details
                         </div>
                         <div class="card-content">
-    <form class="col s12">
+    <form class="col s12"  method="POST" action="../database/insert.php" enctype="multipart/form-data">
+
       <div class="row">
         <div class="input-field col s12">
-          <input id="food_name" type="text" class="validate">
+          <input id="food_name" type="text" name="food_name" class="validate">
           <label for="food_name">Please! Enter unique food name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-        <input id="food_details" type="text" class="validate">
+        <input id="food_details" type="text" name="food_details" class="validate">
           <label for="food_details">Enter food details</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
+        <input id="price" type="number" name="price" class="validate">
+          <label for="price">Enter food Price</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
         <div class="form-group">
-				<input class="form-control" type="file" name="uploadfile" value="" />
+				<input class="form-control" type="file" name="file" value="" />
 			</div>
 			<div class="form-group">
 				<button class="btn btn-primary" type="submit" name="upload">UPLOAD</button>
@@ -109,6 +117,8 @@
         </div>
       </div>
     </form>
+
+
 	<div class="clearBoth"></div>
   </div>
     </div>

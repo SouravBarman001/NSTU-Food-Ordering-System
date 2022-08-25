@@ -91,20 +91,22 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Rendering engine</th>
-                                            <th>Browser</th>
-                                            <th>Platform(s)</th>
-                                            <th>Engine version</th>
-                                            <th>CSS grade</th>
+                                            <th>Phone number</th>
+                                            <th>Address</th>
+                                            <th>Food Item</th>
+                                            <th>Quentity</th>
+                                            <th>Done Or Not</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="odd gradeX">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
+                                            <td>01792488390</td>
+                                            <td>Acamedic building 1</td>
+                                            <td>Burger</td>
+                                            <td class="center">2</td>
+                                            <td class="center">
+                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                            </td>
                                         </tr>
                                         <tr class="even gradeC">
                                             <td>Trident</td>
