@@ -35,7 +35,7 @@ if(isset($_POST['upload'])){
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
   // Valid file extensions
-  $extensions_arr = array("jpg","jpeg","png","gif");
+  $extensions_arr = array("jpg","jpeg","png","gif","webp");
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {

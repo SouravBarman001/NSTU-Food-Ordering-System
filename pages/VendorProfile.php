@@ -1,3 +1,21 @@
+<?php
+include('../database/config.php');
+global $rowcount;
+$sql = "SELECT 
+*
+FROM
+fooditeam";
+
+if ($result = mysqli_query($con, $sql)) {
+
+    // Return the number of rows in result set
+   $rowcount = mysqli_num_rows( $result );
+    
+    // Display result
+  // printf("Total rows in this table :  %d\n", $rowcount);
+ }
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
@@ -18,6 +36,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
 </head>
 
 
@@ -104,7 +123,7 @@
 						</div>
 						<div class="card-stacked blue">
 						<div class="card-content">
-						<h3>24,225</h3> 
+						<h3><?php printf("%d\n", $rowcount); ?></h3> 
 						</div>
 						<div class="card-action">
 						<strong>PRODUCTS</strong>
@@ -130,38 +149,55 @@
 					</div>
 					<div class="card-image">
 					  <ul class="collection">
-    <li class="collection-item avatar">
-      <i class="material-icons circle green">track_changes</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">folder</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle green">track_changes</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle red">play_arrow</i>
-      <span class="title">Title</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-    </li>
+
+<?php
+                    // Include config file
+                        require_once '../database/config.php';
+                    
+                      // Attempt select query execution
+                     $sql = "select foodId,foodName,foodDetails,foodPrice from fooditeam"; 
+
+                      if($result = mysqli_query($con, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo '<table class="table table-bordered table-striped">';
+                                echo "<thead>";
+                                    echo "<tr>";
+                                        echo "<th>Food Id</th>";
+                                        echo "<th>Food Name</th>";
+                                        echo "<th>Food Details</th>";
+                                        echo "<th>Food Price</th>";
+                                        echo "<th>Action</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                        echo "<td>" . $row['foodId'] . "</td>";
+                                        echo "<td>" . $row['foodName'] . "</td>";
+                                        echo "<td>" . $row['foodDetails'] . "</td>";
+                                        echo "<td>" . $row['foodPrice'] . "</td>";
+                                        echo "<td>";
+                                        echo '<a href="read.php?id='. $row['foodId'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
+                                        echo '<a href="update.php?id='. $row['foodId'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
+                                        echo '<a href="delete.php?id='. $row['foodId'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                        }
+                    } else{
+                        echo "Oops! Something went wrong. Please try again later.";
+                    }
+ 
+                      // Close connection
+                          mysqli_close($con);
+                    ?>
+
   </ul>
 					 </div>  
 					</div>	 
