@@ -1,23 +1,34 @@
 <?php
 // Process delete operation after confirmation
-if(isset($_POST["foodId"]) && !empty($_POST["foodId"])){
+if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Include config file
-    require_once "config.php";
+    include("config.php");
     
-    // Prepare a delete statement
-    $sql = "DELETE FROM fooditem WHERE id = ?";
+   // Prepare a delete statement
+   $sql = "DELETE FROM fooditeam WHERE foodId =".$_POST["id"];
+   $img = "Select foodImg from fooditeam WHERE foodId =".$_POST["id"];
     
+
+     // Set parameters
+     $param_id = trim($_POST["id"]);
     if($stmt = mysqli_prepare($con, $sql)){
         // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "i", $param_id);
         
-        // Set parameters
-        $param_id = trim($_POST["foodId"]);
+      
         
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
+
+            $path = "upload/$img";
+            if(!unlink($path)){
+                echo "you have an error!";
+            }else{
+                header("location: ../pages/VendorProfile.php");
+            }
+
             // Records deleted successfully. Redirect to landing page
-            header("location: ../VendorProfile.php");
+          //  header("location: ../pages/VendorProfile.php");
             exit();
         } else{
             echo "Oops! Something went wrong. Please try again later.";
@@ -29,9 +40,24 @@ if(isset($_POST["foodId"]) && !empty($_POST["foodId"])){
     
     // Close connection
     mysqli_close($con);
+
+    // $Id = $_REQUEST['Id'];
+
+    // $sql = "DELETE FROM teacher WHERE id='".$Id."' ";
+
+
+    // if(mysqli_query($con, $sql)){
+
+    //    echo "delete";
+
+    // } else{
+    //     echo "ERROR: Hush! Sorry $sql. "
+    //         . mysqli_error($con);
+    // }
+
 } else{
     // Check existence of id parameter
-    if(empty(trim($_GET["foodId"]))){
+    if(empty(trim($_GET["id"]))){
         // URL doesn't contain id parameter. Redirect to error page
         header("location: error.php");
         exit();
@@ -60,7 +86,7 @@ if(isset($_POST["foodId"]) && !empty($_POST["foodId"])){
                     <h2 class="mt-5 mb-3">Delete Record</h2>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger">
-                            <input type="hidden" name="id" value="<?php echo trim($_GET["foodId"]); ?>"/>
+                            <input type="text" name="id" value="<?php echo trim($_GET["id"]); ?>"/>
                             <p>Are you sure you want to delete this employee record?</p>
                             <p>
                                 <input type="submit" value="Yes" class="btn btn-danger">

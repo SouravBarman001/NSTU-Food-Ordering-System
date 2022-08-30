@@ -57,7 +57,7 @@ if ($result = mysqli_query($con, $sql)) {
 
             <ul class="nav navbar-top-links navbar-right"> 
 
-				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>John Doe</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>Sourav Barman</b> <i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
 		<!-- Dropdown Structure -->
@@ -107,7 +107,7 @@ if ($result = mysqli_query($con, $sql)) {
 						</div>
 						<div class="card-stacked orange">
 						<div class="card-content">
-						<h3>36,540</h3> 
+						<h3>---</h3> 
 						</div>
 						<div class="card-action">
 						<strong>SALES</strong>
@@ -177,9 +177,8 @@ if ($result = mysqli_query($con, $sql)) {
                                         echo "<td>" . $row['foodDetails'] . "</td>";
                                         echo "<td>" . $row['foodPrice'] . "</td>";
                                         echo "<td>";
-                                        echo '<a href="read.php?id='. $row['foodId'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                        echo '<a href="update.php?id='. $row['foodId'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                        echo '<a href="delete.php?id='. $row['foodId'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                        echo '<a href="../database/deleteFile.php?id='. $row['foodId'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>';
+                                      
                                     echo "</td>";
                                     echo "</tr>";
                                 }
@@ -206,18 +205,7 @@ if ($result = mysqli_query($con, $sql)) {
 
                     </div>
                 </div>
-                <!-- /. ROW  -->
-			   <div class="fixed-action-btn horizontal click-to-toggle">
-    <a class="btn-floating btn-large red">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-    </ul>
-  </div>
+
             </div>
             <!-- /. PAGE INNER  -->
         </div>
