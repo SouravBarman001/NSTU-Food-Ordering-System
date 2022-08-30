@@ -159,32 +159,40 @@ if ($result = mysqli_query($con, $sql)) {
 
                       if($result = mysqli_query($con, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                            echo '<table class="table table-bordered table-striped">';
-                                echo "<thead>";
-                                    echo "<tr>";
-                                        echo "<th>Food Id</th>";
-                                        echo "<th>Food Name</th>";
-                                        echo "<th>Food Details</th>";
-                                        echo "<th>Food Price</th>";
-                                        echo "<th>Action</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                        echo "<td>" . $row['foodId'] . "</td>";
-                                        echo "<td>" . $row['foodName'] . "</td>";
-                                        echo "<td>" . $row['foodDetails'] . "</td>";
-                                        echo "<td>" . $row['foodPrice'] . "</td>";
-                                        echo "<td>";
-                                        echo '<a href="../database/deleteFile.php?id='. $row['foodId'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>';
-                                      
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                            // Free result set
+                            ?>
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                   <tr>
+                                        <th>Food Id</th>
+                                        <th>Food Name</th>
+                                        <th>Food Details</th>
+                                        <th>Food Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <?php  
+                                while($row = mysqli_fetch_array($result))
+                                {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['foodId'] ?> </td>
+                                        <td><?php echo $row['foodName'] ?> </td>
+                                        <td><?php echo $row['foodDetails'] ?> </td>
+                                        <td><?php echo $row['foodPrice'] ?> </td>
+                                        
+                                        <td>
+                                        <a href="../database/deleteFile.php?id='. $row['foodId'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                       
+
+
+                                    </td>
+                                    </tr>
+                              <?php  }?>
+                                
+                               </tbody>                           
+                            </table>
+                         <?php   
                             mysqli_free_result($result);
                         } else{
                             echo '<div class="alert alert-danger"><em>No records were found.</em></div>';

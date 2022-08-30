@@ -2,12 +2,12 @@
 
 include('../database/config.php');
 
-echo trim($_GET["id"]); 
+// echo trim($_GET["id"]); 
 
 
 $Id = trim($_GET["id"]);
 
-$sql = "DELETE FROM fooditeam WHERE foodId ='".$Id."' ";
+$sql = "DELETE FROM fooditeam WHERE foodId =".$Id."' ";
 
 $img = "SELECT foodImg from fooditeam WHERE foodId ='".$Id."' ";
 
