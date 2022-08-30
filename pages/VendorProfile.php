@@ -181,20 +181,30 @@ if ($result = mysqli_query($con, $sql)) {
                                         <td><?php echo $row['foodDetails'] ?> </td>
                                         <td><?php echo $row['foodPrice'] ?> </td>
                                         
-                                        <td>
-                                        <a href="../database/deleteFile.php?id='. $row['foodId'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
                                        
+                                        
+                                        <td>
+                                        <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">><a href="../database/deleteFile.php?id='. $row['foodId'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                        --->
+                                        <form action="../database/test.php" method="post" >
+                                               <input type="hidden" name="deleteid" value='<?php echo $row['foodId']; ?>' >
+                                               <!-- <input type="hidden" name="deleteimg" value='<?php echo $row['foodImg']; ?>' > -->
+
+                                               <input type="submit" value="delete" name="deletebtn" class="mr-3" title="Delete item" data-toggle="tooltip" >
+
+                                        </form>
 
 
                                     </td>
                                     </tr>
-                              <?php  }?>
+                              <?php  } ?>
                                 
                                </tbody>                           
                             </table>
                          <?php   
                             mysqli_free_result($result);
-                        } else{
+                        } else
+                        {
                             echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
                         }
                     } else{
