@@ -50,3 +50,11 @@ Boston.
 
 -Web Technologies: A Computer Science Perspective
 Book by Jeffrey C. Jackson
+
+
+# Team Members
+## 1. Md Al-Amin [student pages]
+## 2. Sultana Marjan [login pages]
+## 3. Sourav Barman [Vendor pages]
+
+
