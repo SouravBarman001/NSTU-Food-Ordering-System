@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -36,7 +40,7 @@
 
             <ul class="nav navbar-top-links navbar-right"> 
 			
-				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>Sourav Barman</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b><?php echo $_SESSION['vendorName']?></b> <i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
 		<!-- Dropdown Structure -->
@@ -85,7 +89,7 @@
                             Enter Food Details
                         </div>
                         <div class="card-content">
-    <form class="col s12"  method="POST" action="../database/insert.php" enctype="multipart/form-data">
+    <form class="col s12"  method="POST" action="../BackEnd/insert.php" enctype="multipart/form-data">
 
       <div class="row">
         <div class="input-field col s12">

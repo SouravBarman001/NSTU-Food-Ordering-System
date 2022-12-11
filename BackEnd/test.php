@@ -1,15 +1,15 @@
 <?php
 
-include('./config.php');
+include('connect.php');
 
 if (isset($_POST['deletebtn']))
 {
 
 $id = $_POST['deleteid'];
 $img = $_POST['deleteimg'];
-echo $img;
+
 $sql = "DELETE FROM fooditeam WHERE foodId ='$id'";
-$query_run = mysqli_query($con, $sql);
+$query_run = mysqli_query($conn, $sql);
 
 if($query_run){
     unlink("uploades/".$img);

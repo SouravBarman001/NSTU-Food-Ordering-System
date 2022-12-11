@@ -1,12 +1,10 @@
 <?php
-include('../database/config.php');
+include('../BackEnd/connect.php');
+session_start();
 global $rowcount;
-$sql = "SELECT 
-*
-FROM
-fooditeam";
+$sql = "SELECT *FROM fooditeam";
 
-if ($result = mysqli_query($con, $sql)) {
+if ($result = mysqli_query($conn, $sql)) {
 
     // Return the number of rows in result set
    $rowcount = mysqli_num_rows( $result );
@@ -39,7 +37,6 @@ if ($result = mysqli_query($con, $sql)) {
     
 </head>
 
-
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
@@ -57,7 +54,7 @@ if ($result = mysqli_query($con, $sql)) {
 
             <ul class="nav navbar-top-links navbar-right"> 
 
-				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>Sourav Barman</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b><?php echo $_SESSION['vendorName']?></b> <i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
 		<!-- Dropdown Structure -->
@@ -152,12 +149,12 @@ if ($result = mysqli_query($con, $sql)) {
 
 <?php
                     // Include config file
-                        require_once '../database/config.php';
+                        require_once '../BackEnd/connect.php';
                     
                       // Attempt select query execution
-                     $sql = "select foodId,foodName,foodDetails,foodPrice from fooditeam"; 
+                     $sql = "select foodId,foodName,foodDetails,foodPrice,foodImg from fooditeam"; 
 
-                      if($result = mysqli_query($con, $sql)){
+                      if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             ?>
                             <table class="table table-bordered table-striped">
@@ -186,10 +183,9 @@ if ($result = mysqli_query($con, $sql)) {
                                         <td>
                                         <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">><a href="../database/deleteFile.php?id='. $row['foodId'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
                                         --->
-                                        <form action="../database/test.php" method="post" >
+                                        <form action="../BackEnd/test.php" method="post" >
                                                <input type="hidden" name="deleteid" value='<?php echo $row['foodId']; ?>' >
-                                               <!-- <input type="hidden" name="deleteimg" value='<?php echo $row['foodImg']; ?>' > -->
-
+                                               <input type="hidden" name="deleteimg" value='<?php echo $row['foodImg']; ?>' >
                                                <input type="submit" value="delete" name="deletebtn" class="mr-3" title="Delete item" data-toggle="tooltip" >
 
                                         </form>
@@ -212,7 +208,7 @@ if ($result = mysqli_query($con, $sql)) {
                     }
  
                       // Close connection
-                          mysqli_close($con);
+                          mysqli_close($conn);
                     ?>
 
   </ul>

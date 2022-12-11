@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+?>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -35,7 +39,7 @@
             </div>
 
             <ul class="nav navbar-top-links navbar-right"> 
-				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>Sourav Barman</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b><?php echo $_SESSION['vendorName']?></b> <i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
 		<!-- Dropdown Structure -->
@@ -79,67 +83,29 @@
 		
             <div id="page-inner"> 
                
-            <div class="row">
+            <div class="row" >
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
                     <div class="card">
                         <div class="card-content">
                             <div class="table-responsive">
-<!----------------------------------------------------------------
-
-
-
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Phone number</th>
-                                            <th>Address</th>
-                                            <th>Food Item</th>
-                                            <th>Quentity</th>
-                                            <th>Accept/reject</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="odd gradeX">
-                                            <td>01792488390</td>
-                                            <td>Acamedic building 1</td>
-                                            <td>Burger</td>
-                                            <td class="center">2</td>
-                                            <td class="center">
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-                                            </td>
-                                        </tr>
-                                        <tr class="even gradeC">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 5.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">5</td>
-                                            <td class="center">C</td>
-                                        </tr>
-     
-                                 
-                                    </tbody>
-                                </table>
-
-
-
->
-
-<!---------------table data fetch form data base -------->
 
 
 <?php
                     // Include config file
-                        require_once '../database/config.php';
-                    
+                        require_once '../BackEnd/connect.php';
+                        $ss=$_SESSION['vendorId'];
                       // Attempt select query execution
-                     $sql = "select phone_number,address,food_item,quentity from foodlist"; 
+                     $sql = "SELECT order_manager.order_id,order_manager.Full_Name,order_manager.Phone_No,order_manager.Address,user_order.Item_Name,user_order.Price,user_order.Quantity ,user_order.user_mail
+                     FROM user_order JOIN order_manager
+                     ON user_order.order_id=order_manager.order_id AND user_order.vendor_id='$ss';"; 
 
-                      if($result = mysqli_query($con, $sql)){
+                      if($result = mysqli_query($conn, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-striped table-bordered table-hover" id="dataTables-example">';
                                 echo "<thead>";
                                     echo "<tr>";
+                                        echo "<th>Name</th>";
                                         echo "<th>Phone number</th>";
                                         echo "<th>Address</th>";
                                         echo "<th>Food Items</th>";
@@ -152,17 +118,35 @@
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
-                                        echo "<td>" . $row['phone_number'] . "</td>";
-                                        echo "<td>" . $row['address'] . "</td>";
-                                        echo "<td>" . $row['food_item'] . "</td>";
-                                        echo "<td>" . $row['quentity'] . "</td>";
-                                        echo "<td>" . '120tk' . "</td>";
+                                        echo "<td>" . $row['Full_Name'] . "</td>";
+                                        echo "<td>" . $row['Phone_No'] . "</td>";
+                                        echo "<td>" . $row['Address'] . "</td>";
+                                        echo "<td>" . $row['Item_Name'] . "</td>";
+                                        echo "<td>" . $row['Quantity'] . "</td>";
+                                        echo "<td>" . $row['Price'] . "</td>";
                                         echo "<td>";
-                                        echo '<a href="../database/delete.php?id='. $row['phone_number'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-check-square-o" aria-hidden="true"></i></span></a>';
+                                        echo "
+                                        <form action='../BackEnd/manage_cart.php'  method='post'>
+                                        <button name='accepted' class='Remove btn'> <i class='fa fa-check-square-o' aria-hidden='true'></i> </button>
+                                        <input type='hidden' name='order_id' value=".$row['order_id']." >
+                                        <input type='hidden' name='Item_Name' value=".$row['Item_Name']." >
+                                        <input type='hidden' name='Price' value=".$row['Price']." >
+                                        <input type='hidden' name='email' value=".$row['user_mail']." >
+                                        </form>
+                                        ";
+
+                                       // echo '<a href="../database/delete.php?id='. $row['order_id'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-check-square-o" aria-hidden="true"></i></span></a>';
 
                                     echo "</td>";
                                     echo "<td>";
-                                    echo '<a href="../database/delete.php?id='. $row['phone_number'] .'" class="mr-3" title="Delete item" data-toggle="tooltip"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>';
+                                    echo"
+                                    <form action='../BackEnd/manage_cart.php'  method='post'>
+                                        <button name='Remove_Item_V' class='Remove btn'> <i class='fa fa-times' aria-hidden='true'></i> </button>
+                                        <input type='hidden' name='order_id' value=".$row['order_id']." >
+                                        <input type='hidden' name='Item_Name' value=".$row['Item_Name']." >
+                                        <input type='hidden' name='Price' value=".$row['Price']." >
+                                        </form>
+                                        ";
                                     echo "</td>";
 
                                     echo "</tr>";
@@ -179,7 +163,7 @@
                     }
  
                       // Close connection
-                          mysqli_close($con);
+                          mysqli_close($conn);
                     ?>
 
 

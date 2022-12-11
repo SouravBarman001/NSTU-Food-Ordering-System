@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.hero{
+    background:#eb9544 ;
+    width: 100%;
+    color: #fff;
+    position: relative;
+}
+nav{
+    display: flex;
+    align-items: center;
+    padding: 20px 8%;
+    padding-left: 0px;
+    width: 100%;
+}
+
+nav .logo_image{
+    width: 80px;
+    /* margin-right: 20px  ; */
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+nav ul{
+    flex:1;
+    text-align: right;
+   margin: 20px;
+}
+nav ul li{
+    display:inline-block;
+    list-style: none;
+    margin: 0 0px;
+}
+nav ul li a{
+    text-decoration: none;
+    color:#fff;
+    
+}
+nav ul li a:hover{
+    color:goldenrod;
+    
+}
+.btn_Home {
+    width: 150px;
+    background-color: #eb6044;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+    text-decoration: none;
+    padding: 20px;
+  }
+
+  .First_header{
+  text-align: center;
+  width: 100%;
+  height: fit-content;
+  background-color: azure;
+  padding: 10px;
+  }
+ 
+  .item-table{
+    width:80%;
+    float:left;
+  } 
+  .total{
+    width: 20%;
+    float: right;
+    text-align: center;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  th{
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+  .Removebtn{
+    text-align: center;
+  }
+  .btn{
+    background-color: #eb6044;
+    padding: 5px;
+    border-radius: 49px;
+    color: #fff;
+    border: none;
+    outline: none;
+  }
+  .Purchase{
+    width: 80%;
+    padding: 5px;
+    background-color: #eb6044;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size:20px;
+
+  }
+  #gtotal{
+    padding: 20px;
+  }

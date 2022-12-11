@@ -1,5 +1,6 @@
 <?php
-include("./config.php");
+include("connect.php");
+session_start();
 $uploadOk = 1;
 
 
@@ -9,7 +10,7 @@ if(isset($_POST['upload'])){
         $food_name = $_REQUEST['food_name'];
 		$food_details = $_REQUEST['food_details'];
 		$price = $_REQUEST['price'];
-	
+	  $id=$_SESSION['vendorId'];
 
 
 
@@ -49,10 +50,10 @@ if ($uploadOk == 0) {
         // Insert record
        // $query = "insert into fooditeam(foodImg) values('".$name."')";
 
-       $query = "INSERT INTO fooditeam (foodName, foodDetails,foodPrice,foodImg) values('$food_name',
-       '$food_details','$price','".$name."')";
+       $query = "INSERT INTO fooditeam (foodName, foodDetails,foodPrice,foodImg,vendor_id) values('$food_name',
+       '$food_details','$price','".$name."','$id')";
 
-        mysqli_query($con,$query);
+        mysqli_query($conn,$query);
         echo "Food item added successfully";
      }
 
